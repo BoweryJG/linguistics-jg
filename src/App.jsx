@@ -16,7 +16,7 @@ import api from './api';
 import NavBar from './components/NavBar';
 
 // Import components
-import DashboardView from './components/ExecutiveDashboard';
+import DashboardView from './components/ImmersiveSalesHub';
 import AnalysisView from './components/AnalysisView';
 import CompleteView from './components/CompleteView';
 import InsightsView from './components/ProfessionalAnalysisReport';
