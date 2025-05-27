@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Typography,
   Box,
@@ -43,11 +43,39 @@ import {
   GradientButton,
   GradientAvatar
 } from './StyledComponents';
+import { 
+  generateInitialConversations, 
+  generatePerformanceMetrics,
+  generateMockConversation 
+} from '../utils/mockDataGenerator';
 
 const DashboardView = ({ onUploadClick }) => {
   const theme = useTheme();
   const [expandedSection, setExpandedSection] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [recentAnalyses, setRecentAnalyses] = useState([]);
+  const [performanceMetrics, setPerformanceMetrics] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Load mock data on component mount
+  useEffect(() => {
+    // Simulate loading delay
+    setTimeout(() => {
+      setRecentAnalyses(generateInitialConversations(5));
+      setPerformanceMetrics(generatePerformanceMetrics());
+      setIsLoading(false);
+    }, 800);
+    
+    // Set up interval to occasionally add new conversations
+    const interval = setInterval(() => {
+      if (Math.random() > 0.7) { // 30% chance every 10 seconds
+        const newConversation = generateMockConversation();
+        setRecentAnalyses(prev => [newConversation, ...prev].slice(0, 10));
+      }
+    }, 10000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   // Function to toggle section expansion
   const toggleSection = (sectionName) => {
@@ -57,19 +85,34 @@ const DashboardView = ({ onUploadClick }) => {
       setExpandedSection(sectionName);
     }
   };
-
-  const recentAnalyses = [
-    { id: 1, score: 87, title: 'Discovery Call - Bright Smile Dental', time: 'Today at 10:45 AM', insights: 4 },
-    { id: 2, score: 92, title: 'Product Demo - TechCorp Solutions', time: 'Today at 2:30 PM', insights: 6 },
-    { id: 3, score: 78, title: 'Strategy Session - Growth Partners', time: 'Yesterday at 4:15 PM', insights: 3 },
-  ];
-
-  const performanceMetrics = [
-    { label: 'Strategy Score', value: 84.2, change: '+12%', variant: 'success' },
-    { label: 'Calls Analyzed', value: 12, change: 'This Week', variant: 'info' },
-    { label: 'Avg. Call Score', value: 88.5, change: '+5.3%', variant: 'primary' },
-    { label: 'Insights Generated', value: 47, change: '+23%', variant: 'secondary' },
-  ];
+  
+  // Transform performance metrics for display
+  const metricsList = performanceMetrics ? [
+    { 
+      label: 'Strategy Score', 
+      value: performanceMetrics.strategyScore.value, 
+      change: performanceMetrics.strategyScore.change, 
+      variant: 'success' 
+    },
+    { 
+      label: 'Calls Analyzed', 
+      value: performanceMetrics.callsAnalyzed.value, 
+      change: performanceMetrics.callsAnalyzed.change, 
+      variant: 'info' 
+    },
+    { 
+      label: 'Avg. Call Score', 
+      value: performanceMetrics.avgCallScore.value, 
+      change: performanceMetrics.avgCallScore.change, 
+      variant: 'primary' 
+    },
+    { 
+      label: 'Insights Generated', 
+      value: performanceMetrics.insightsGenerated.value, 
+      change: performanceMetrics.insightsGenerated.change, 
+      variant: 'secondary' 
+    },
+  ] : [];
 
   return (
     <Box className="stagger-children">
@@ -105,7 +148,7 @@ const DashboardView = ({ onUploadClick }) => {
       
       {/* Quick Stats */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        {performanceMetrics.map((metric, index) => (
+        {metricsList.map((metric, index) => (
           <Grid item xs={6} md={3} key={metric.label}>
             <Zoom in timeout={400 + index * 100}>
               <GlassCard
@@ -176,7 +219,7 @@ const DashboardView = ({ onUploadClick }) => {
               />
               <CardContent>
                 <Box sx={{ '& > :not(:last-child)': { mb: 2 } }}>
-                  {recentAnalyses.map((analysis, index) => (
+                  {recentAnalyses.slice(0, 3).map((analysis, index) => (
                     <Grow in timeout={800 + index * 100} key={analysis.id}>
                       <Paper 
                         elevation={0} 
@@ -223,12 +266,12 @@ const DashboardView = ({ onUploadClick }) => {
                             {analysis.title}
                           </Typography>
                           <Typography variant="body2" color="text.secondary">
-                            {analysis.time}
+                            {analysis.dateString}
                           </Typography>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                           <Badge variant="info">
-                            {analysis.insights} insights
+                            {analysis.insights.length} insights
                           </Badge>
                           <ArrowForward 
                             sx={{ 

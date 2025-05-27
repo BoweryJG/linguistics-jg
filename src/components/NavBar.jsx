@@ -31,7 +31,7 @@ const ACCENT_COLOR = '#00ffc6';
 
 // Main navigation links
 const getNavLinks = (currentUrl) => {
-  const links = [
+  let links = [
     { 
       key: 'insights',
       label: 'Market Insights', 

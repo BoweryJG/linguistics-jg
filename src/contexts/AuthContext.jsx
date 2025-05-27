@@ -8,8 +8,12 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [user, setUser] = useState({
     id: 'default-user-id',
-    name: 'Default User',
-    email: 'user@example.com'
+    name: 'Alex Johnson',
+    email: 'alex.johnson@salesteam.com',
+    avatar: 'https://ui-avatars.com/api/?name=Alex+Johnson&background=6366F1&color=fff',
+    role: 'Senior Sales Manager',
+    company: 'TechSales Pro',
+    joinedDate: '2023-01-15'
   });
   const [loading, setLoading] = useState(false);
   const [subscription, setSubscription] = useState({

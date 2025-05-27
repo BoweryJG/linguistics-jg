@@ -25,6 +25,8 @@ import SignupDialog from './components/auth/SignupDialog';
 
 // Import styled components
 import { AnimatedBackground } from './components/StyledComponents';
+import FloatingThemeToggle from './components/FloatingThemeToggle';
+import DemoModeIndicator from './components/DemoModeIndicator';
 
 // Import contexts
 import { useTheme } from './contexts/ThemeContext';
@@ -352,6 +354,12 @@ const App = () => {
         {/* Auth dialogs - hidden but kept for compatibility */}
         <LoginDialog open={false} onClose={handleLoginClose} />
         <SignupDialog open={false} onClose={handleSignupClose} />
+        
+        {/* Floating Theme Toggle */}
+        <FloatingThemeToggle />
+        
+        {/* Demo Mode Indicator */}
+        <DemoModeIndicator />
       </Box>
     </OrbContextProvider>
   );
