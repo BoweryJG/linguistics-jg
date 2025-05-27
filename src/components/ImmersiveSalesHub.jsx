@@ -55,6 +55,33 @@ import {
 import { AI_ANALYSIS_TYPES, generateAnalysisForType } from '../utils/aiAnalysisTypes';
 import { generateMockConversation } from '../utils/mockDataGenerator';
 import { GlassCard } from './StyledComponents';
+import RecentActivityFeed from './RecentActivityFeed';
+
+// Import all analysis components
+import MEDDICAnalysis from './analysis/MEDDICAnalysis';
+import EmotionalIntelligenceAnalysis from './analysis/EmotionalIntelligenceAnalysis';
+import SPINAnalysis from './analysis/SPINAnalysis';
+import ObjectionHandlingAnalysis from './analysis/ObjectionHandlingAnalysis';
+import CompetitiveIntelligenceAnalysis from './analysis/CompetitiveIntelligenceAnalysis';
+import TalkAnalyticsAnalysis from './analysis/TalkAnalyticsAnalysis';
+import NextBestActionAnalysis from './analysis/NextBestActionAnalysis';
+import PersonalityInsightsAnalysis from './analysis/PersonalityInsightsAnalysis';
+import RiskAssessmentAnalysis from './analysis/RiskAssessmentAnalysis';
+import NegotiationMasterAnalysis from './analysis/NegotiationMasterAnalysis';
+
+// Analysis component mapping
+const analysisComponents = {
+  meddic: MEDDICAnalysis,
+  emotional_intelligence: EmotionalIntelligenceAnalysis,
+  spin: SPINAnalysis,
+  objection_handling: ObjectionHandlingAnalysis,
+  competitive_intelligence: CompetitiveIntelligenceAnalysis,
+  talk_analytics: TalkAnalyticsAnalysis,
+  next_best_action: NextBestActionAnalysis,
+  personality_insights: PersonalityInsightsAnalysis,
+  risk_assessment: RiskAssessmentAnalysis,
+  negotiation_master: NegotiationMasterAnalysis
+};
 
 // Icon mapping
 const iconMap = {
@@ -452,6 +479,28 @@ const ImmersiveSalesHub = () => {
     setDialogOpen(true);
   };
   
+  const renderAnalysisComponent = () => {
+    if (!selectedAnalysis) return null;
+    
+    const AnalysisComponent = analysisComponents[selectedAnalysis.id];
+    if (!AnalysisComponent) {
+      return (
+        <Box sx={{ p: 3, textAlign: 'center' }}>
+          <Typography variant="h6" gutterBottom>
+            Analysis Coming Soon
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {selectedAnalysis.name} analysis will be available soon with detailed insights.
+          </Typography>
+        </Box>
+      );
+    }
+    
+    // Generate mock conversation data for analysis
+    const mockData = generateMockConversation();
+    return <AnalysisComponent conversationData={mockData} />;
+  };
+  
   const heroStats = [
     { 
       title: 'Win Rate', 
@@ -595,27 +644,20 @@ const ImmersiveSalesHub = () => {
           
           {/* Recent Activity Sidebar */}
           <Grid item xs={12} lg={3}>
-            <Box sx={{ position: 'sticky', top: 20 }}>
-              <Typography variant="h5" sx={{ fontWeight: 800, mb: 3 }}>
-                Recent Activity
-              </Typography>
-              
-              <List sx={{ p: 0 }}>
-                {recentActivity.map((activity, index) => (
-                  <RecentActivityItem key={index} activity={activity} index={index} />
-                ))}
-              </List>
-              
-              <Fade in timeout={1200}>
-                <Button
-                  fullWidth
-                  variant="outlined"
-                  sx={{ mt: 2 }}
-                  endIcon={<Visibility />}
-                >
-                  View All Activity
-                </Button>
-              </Fade>
+            <Box sx={{ 
+              position: 'sticky', 
+              top: 20,
+              background: theme.palette.mode === 'dark'
+                ? alpha(theme.palette.background.paper, 0.6)
+                : 'rgba(255, 255, 255, 0.8)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: 3,
+              border: '1px solid',
+              borderColor: theme.palette.divider,
+              overflow: 'hidden',
+              height: 'calc(100vh - 120px)'
+            }}>
+              <RecentActivityFeed />
             </Box>
           </Grid>
         </Grid>
@@ -625,15 +667,16 @@ const ImmersiveSalesHub = () => {
       <Dialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
-        maxWidth="lg"
+        maxWidth="xl"
         fullWidth
+        fullScreen
         PaperProps={{
           sx: {
             background: theme.palette.mode === 'dark'
-              ? 'rgba(30, 30, 30, 0.95)'
+              ? 'rgba(15, 15, 15, 0.98)'
               : 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(20px)',
-            borderRadius: 3,
+            borderRadius: 0,
           }
         }}
       >
@@ -665,13 +708,8 @@ const ImmersiveSalesHub = () => {
                 </IconButton>
               </Box>
             </DialogTitle>
-            <DialogContent>
-              <Box sx={{ py: 2 }}>
-                <Typography variant="body1" color="text.secondary">
-                  Detailed {selectedAnalysis.name} analysis would be displayed here with rich visualizations,
-                  insights, and actionable recommendations tailored to this specific conversation.
-                </Typography>
-              </Box>
+            <DialogContent sx={{ p: 0, overflow: 'hidden' }}>
+              {renderAnalysisComponent()}
             </DialogContent>
           </>
         )}

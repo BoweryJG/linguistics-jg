@@ -14,12 +14,14 @@ import api from './api';
 
 // Import NavBar component
 import NavBar from './components/NavBar';
+import LocalNavBar from './components/LocalNavBar';
 
 // Import components
 import DashboardView from './components/ImmersiveSalesHub';
 import AnalysisView from './components/AnalysisView';
 import CompleteView from './components/CompleteView';
 import InsightsView from './components/ProfessionalAnalysisReport';
+import CRMIntegrationHub from './components/CRMIntegrationHub';
 import LoginDialog from './components/auth/LoginDialog';
 import SignupDialog from './components/auth/SignupDialog';
 
@@ -291,7 +293,7 @@ const App = () => {
         <AnimatedBackground />
         
         {/* Navigation Bar */}
-        <NavBar />
+        <LocalNavBar currentView={currentView} onViewChange={handleViewChange} />
 
         <Fade in timeout={600}>
           <Container sx={{ 
@@ -338,6 +340,11 @@ const App = () => {
             conversation={analysisResults} 
             analysis={analysisResults?.analysis} 
           />
+        )}
+        
+        {/* CRM Integration Hub */}
+        {currentView === 'crm' && (
+          <CRMIntegrationHub />
         )}
           </Container>
         </Fade>
