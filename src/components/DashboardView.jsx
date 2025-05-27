@@ -7,7 +7,10 @@ import {
   CardContent,
   Grid,
   Button,
-  Paper
+  Paper,
+  Fade,
+  Slide,
+  useTheme
 } from '@mui/material';
 import {
   Psychology,
@@ -23,13 +26,22 @@ import {
   Science,
   Loop,
   Hearing,
-  FileUpload
+  FileUpload,
+  AutoAwesome
 } from '@mui/icons-material';
-import { ScoreBadge, IconWrapper, Badge, ProgressBar } from './StyledComponents';
+import { 
+  ScoreBadge, 
+  IconWrapper, 
+  Badge, 
+  ProgressBar, 
+  GlassCard,
+  GradientButton 
+} from './StyledComponents';
 
 const DashboardView = ({ onUploadClick }) => {
-  // State to track which sections are expanded
+  const theme = useTheme();
   const [expandedSection, setExpandedSection] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState(null);
   
   // Function to toggle section expansion
   const toggleSection = (sectionName) => {
@@ -41,36 +53,81 @@ const DashboardView = ({ onUploadClick }) => {
   };
   
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={8}>
-        <Card>
-          <CardHeader
-            title="Recent Analyses"
-            action={
-              <Button variant="contained" color="primary" size="small">
-                View All
-              </Button>
-            }
-          />
-          <CardContent>
-            <Box sx={{ '& > :not(:last-child)': { mb: 2 } }}>
-              <Paper 
-                elevation={0} 
-                sx={{ 
-                  p: 2, 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  border: '1px solid #e2e8f0', 
-                  borderRadius: 2,
-                  transition: 'all 0.2s',
-                  '&:hover': {
-                    bgcolor: (theme) =>
-                      theme.palette.mode === 'dark'
-                        ? theme.palette.action.hover
-                        : '#f8fafc'
-                  }
-                }}
-              >
+    <Box className="stagger-children">
+      <Fade in timeout={300}>
+        <Box sx={{ mb: 4 }}>
+          <Typography 
+            variant="h1" 
+            sx={{ 
+              fontSize: '2.5rem',
+              fontWeight: 800,
+              mb: 1,
+              background: theme.palette.mode === 'dark' 
+                ? 'linear-gradient(135deg, #A78BFA 0%, #67E8F9 100%)'
+                : 'linear-gradient(135deg, #6366F1 0%, #EC4899 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}
+          >
+            Analytics Dashboard
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Track your conversation performance and insights
+          </Typography>
+        </Box>
+      </Fade>
+      
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={8}>
+          <Slide direction="up" in timeout={400}>
+            <GlassCard>
+              <CardHeader
+                title={
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <AutoAwesome sx={{ color: theme.palette.primary.main }} />
+                    <Typography variant="h5">Recent Analyses</Typography>
+                  </Box>
+                }
+                action={
+                  <Button 
+                    variant="contained" 
+                    size="small"
+                    sx={{
+                      background: 'linear-gradient(135deg, #6366F1 0%, #818CF8 100%)',
+                      '&:hover': {
+                        background: 'linear-gradient(135deg, #4F46E5 0%, #6366F1 100%)',
+                      }
+                    }}
+                  >
+                    View All
+                  </Button>
+                }
+              />
+              <CardContent>
+                <Box sx={{ '& > :not(:last-child)': { mb: 2 } }}>
+                  <Paper 
+                    elevation={0} 
+                    onMouseEnter={() => setHoveredCard(0)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    sx={{ 
+                      p: 2.5, 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      border: `1px solid ${theme.palette.divider}`,
+                      borderRadius: '16px',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      cursor: 'pointer',
+                      background: hoveredCard === 0 
+                        ? theme.palette.action.hover 
+                        : 'transparent',
+                      '&:hover': {
+                        transform: 'translateX(8px)',
+                        borderColor: theme.palette.primary.main,
+                        boxShadow: `0 4px 20px ${theme.palette.primary.main}20`
+                      }
+                    }}
+                  >
                 <ScoreBadge score={87} />
                 <Box sx={{ ml: 2, flex: 1 }}>
                   <Typography variant="h4" sx={{ m: 0 }}>Discovery Call - Bright Smile Dental</Typography>

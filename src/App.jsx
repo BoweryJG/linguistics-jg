@@ -5,7 +5,8 @@ import {
   Avatar,
   Menu,
   MenuItem,
-  Divider
+  Divider,
+  Fade
 } from '@mui/material';
 
 // Import API service
@@ -15,12 +16,15 @@ import api from './api';
 import NavBar from './components/NavBar';
 
 // Import components
-import DashboardView from './components/DashboardView';
+import DashboardView from './components/DashboardViewPremium';
 import AnalysisView from './components/AnalysisView';
 import CompleteView from './components/CompleteView';
 import InsightsView from './components/InsightsView';
 import LoginDialog from './components/auth/LoginDialog';
 import SignupDialog from './components/auth/SignupDialog';
+
+// Import styled components
+import { AnimatedBackground } from './components/StyledComponents';
 
 // Import contexts
 import { useTheme } from './contexts/ThemeContext';
@@ -277,12 +281,23 @@ const App = () => {
         flexDirection: 'column', 
         minHeight: '100vh',
         bgcolor: 'background.default',
-        color: 'text.primary'
+        color: 'text.primary',
+        position: 'relative',
+        isolation: 'isolate'
       }}>
+        {/* Animated Background */}
+        <AnimatedBackground />
+        
         {/* Navigation Bar */}
         <NavBar />
 
-        <Container sx={{ py: 4, flex: 1 }}>
+        <Fade in timeout={600}>
+          <Container sx={{ 
+            py: 4, 
+            flex: 1,
+            position: 'relative',
+            zIndex: 1
+          }}>
         {/* Subscription Info - Always show */}
         {currentView !== 'complete' && (
           <React.Suspense fallback={<div>Loading subscription info...</div>}>
@@ -319,7 +334,8 @@ const App = () => {
         {currentView === 'insights' && (
           <InsightsView analysisResults={analysisResults} />
         )}
-        </Container>
+          </Container>
+        </Fade>
         
         {/* User menu */}
         <Menu
