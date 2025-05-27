@@ -16,10 +16,10 @@ import api from './api';
 import NavBar from './components/NavBar';
 
 // Import components
-import DashboardView from './components/DashboardViewPremium';
+import DashboardView from './components/ExecutiveDashboard';
 import AnalysisView from './components/AnalysisView';
 import CompleteView from './components/CompleteView';
-import InsightsView from './components/InsightsViewEnhanced';
+import InsightsView from './components/ProfessionalAnalysisReport';
 import LoginDialog from './components/auth/LoginDialog';
 import SignupDialog from './components/auth/SignupDialog';
 
@@ -334,7 +334,10 @@ const App = () => {
         
         {/* Team Insights View */}
         {currentView === 'insights' && (
-          <InsightsView analysisResults={analysisResults} />
+          <InsightsView 
+            conversation={analysisResults} 
+            analysis={analysisResults?.analysis} 
+          />
         )}
           </Container>
         </Fade>

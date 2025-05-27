@@ -102,10 +102,6 @@ export const lightTheme = createTheme({
       fontSize: '3.5rem',
       lineHeight: 1.2,
       letterSpacing: '-0.02em',
-      background: 'linear-gradient(135deg, #6366F1 0%, #EC4899 100%)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
       '@media (max-width:600px)': {
         fontSize: '2.5rem',
       },
@@ -343,10 +339,6 @@ export const darkTheme = createTheme({
       fontSize: '3.5rem',
       lineHeight: 1.2,
       letterSpacing: '-0.02em',
-      background: 'linear-gradient(135deg, #A78BFA 0%, #67E8F9 100%)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
       '@media (max-width:600px)': {
         fontSize: '2.5rem',
       },
