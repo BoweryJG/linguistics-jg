@@ -1,3 +1,8 @@
+import { 
+  generateCompleteAnalysis,
+  generateParticipantAnalysis 
+} from './advancedMockData';
+
 // Mock data generator for demo purposes
 export const generateMockConversation = () => {
   const companies = [
@@ -76,6 +81,9 @@ export const generateMockTranscript = () => {
 };
 
 export const generateMockAnalysis = (score, insights) => {
+  // Get advanced analysis
+  const advancedAnalysis = generateCompleteAnalysis();
+  
   return {
     overallScore: score,
     strengths: [
@@ -88,17 +96,34 @@ export const generateMockAnalysis = (score, insights) => {
       'More specific ROI examples needed',
       'Follow-up timeline not clearly established'
     ].filter(() => Math.random() > 0.5),
-    keyMoments: insights.map((insight, index) => ({
-      timestamp: `${Math.floor(index * 5 + 2)}:${Math.floor(Math.random() * 60)}`,
-      description: insight,
-      impact: ['High', 'Medium', 'Low'][Math.floor(Math.random() * 3)]
-    })),
-    nextSteps: [
-      'Send follow-up email with case studies',
-      'Schedule technical deep-dive session',
-      'Connect with decision maker'
-    ].filter(() => Math.random() > 0.4)
+    keyMoments: advancedAnalysis.key_moments.slice(0, 3),
+    nextSteps: advancedAnalysis.next_steps.slice(0, 3),
+    // Add advanced analysis data
+    behavioralAnalysis: advancedAnalysis.behavioral_indicators,
+    psychologicalProfile: advancedAnalysis.psychological_profiles,
+    strategicAdvice: advancedAnalysis.strategic_advice,
+    socraticAnalysis: advancedAnalysis.socratic_questions,
+    overallAssessment: advancedAnalysis.overall_assessment,
+    participants: [
+      { 
+        role: 'sales_rep', 
+        name: 'Alex Johnson',
+        analysis: generateParticipantAnalysis('sales_rep')
+      },
+      { 
+        role: 'prospect', 
+        name: generateProspectName(),
+        analysis: generateParticipantAnalysis('prospect')
+      }
+    ]
   };
+};
+
+// Helper function to generate prospect names
+const generateProspectName = () => {
+  const firstNames = ['Sarah', 'Michael', 'Jennifer', 'David', 'Lisa', 'Robert', 'Emma', 'James'];
+  const lastNames = ['Williams', 'Chen', 'Martinez', 'Thompson', 'Anderson', 'Taylor', 'Johnson', 'Brown'];
+  return `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
 };
 
 export const formatDate = (date) => {

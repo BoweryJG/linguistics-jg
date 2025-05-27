@@ -19,7 +19,7 @@ import NavBar from './components/NavBar';
 import DashboardView from './components/DashboardViewPremium';
 import AnalysisView from './components/AnalysisView';
 import CompleteView from './components/CompleteView';
-import InsightsView from './components/InsightsView';
+import InsightsView from './components/InsightsViewEnhanced';
 import LoginDialog from './components/auth/LoginDialog';
 import SignupDialog from './components/auth/SignupDialog';
 
