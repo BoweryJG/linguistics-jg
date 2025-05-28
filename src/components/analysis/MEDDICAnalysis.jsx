@@ -30,95 +30,304 @@ import {
   Timeline,
   Psychology,
   Groups,
-  EmojiEvents
+  EmojiEvents,
+  LocalHospital,
+  AutoAwesome,
+  MonetizationOn,
+  CalendarToday
 } from '@mui/icons-material';
+import { DENTAL_AESTHETICS_INDUSTRY } from '../../data/dentalAestheticsSalesResearch';
 
 const MEDDICAnalysis = ({ data }) => {
   const theme = useTheme();
   
-  // Sample MEDDIC data structure
-  const meddic = data || {
-    overall_score: 78,
-    components: {
-      metrics: {
-        score: 85,
-        status: 'strong',
-        findings: [
-          'Clear ROI metrics identified: 3.2x return in 18 months',
-          'Productivity gains quantified: 15 hours/week saved',
-          'Cost reduction potential: $250K annually'
-        ],
-        risks: ['ROI timeline assumptions need validation'],
-        recommendations: ['Create custom ROI calculator with their data']
+  // Advanced MEDDIC analysis for dental aesthetics sales scenarios
+  const generateDentalMEDDICScenario = (scenarioType = 'veneer_executive') => {
+    const scenarios = {
+      veneer_executive: {
+        overall_score: 89,
+        patient_profile: "High-earning executive, age 42, seeking porcelain veneers",
+        treatment_value: "$18,500 (8 veneers)",
+        timeline: "Ready to schedule within 2 weeks",
+        components: {
+          metrics: {
+            score: 95,
+            status: 'strong',
+            findings: [
+              'ROI quantified: $15K confidence boost = $180K career advancement',
+              'Social impact: "I avoid photos and networking events"',
+              'Professional image: "Promotion depends on executive presence"',
+              'Time value: "Each delay costs me networking opportunities"'
+            ],
+            risks: ['Cost comparison with competitors needed'],
+            recommendations: ['Present executive image ROI calculator', 'Show before/after executive transformations']
+          },
+          economic_buyer: {
+            score: 92,
+            status: 'strong',
+            findings: [
+              'Patient is the economic buyer (executive income)',
+              'Decision authority confirmed: "I can approve this today"',
+              'Budget availability: "Money is not the primary concern"',
+              'Spouse involvement: "My wife supports this investment"'
+            ],
+            risks: ['No risks identified - clear economic buyer'],
+            recommendations: ['Schedule treatment immediately', 'Provide executive financing options']
+          },
+          decision_criteria: {
+            score: 88,
+            status: 'strong',
+            findings: [
+              'Quality priority: "I want the best available materials"',
+              'Timeline critical: "Need completion before industry conference"',
+              'Natural appearance: "Must look completely natural"',
+              'Practice reputation: "Need references from other executives"'
+            ],
+            risks: ['High expectations for perfection'],
+            recommendations: ['Provide celebrity case studies', 'Guarantee natural appearance']
+          },
+          decision_process: {
+            score: 85,
+            status: 'strong',
+            findings: [
+              'Fast decision making: "I decide quickly in business and life"',
+              'Minimal consultation time: "Show me the results, I\'ll decide"',
+              'References checked: "I spoke to 3 of your executive patients"',
+              'Timeline locked: "Must complete in 3 weeks maximum"'
+            ],
+            risks: ['Rushed timeline may impact quality perception'],
+            recommendations: ['Emphasize premium process despite speed', 'Show accelerated timeline success stories']
+          },
+          identify_pain: {
+            score: 93,
+            status: 'strong',
+            findings: [
+              'Career impact: "My smile affects my executive presence"',
+              'Social avoidance: "I don\'t smile in photos anymore"',
+              'Confidence loss: "I cover my mouth when speaking"',
+              'Networking impact: "I avoid speaking engagements"',
+              'Age concern: "I look older than I feel"'
+            ],
+            risks: ['Pain well-established across multiple areas'],
+            recommendations: ['Focus on immediate transformation', 'Emphasize executive presence benefits']
+          },
+          champion: {
+            score: 87,
+            status: 'strong',
+            findings: [
+              'Self-advocating: Patient is own champion',
+              'Spouse support: "My wife wants me to do this"',
+              'Peer influence: "Two colleagues had excellent results here"',
+              'Internal motivation: "This is for my career advancement"'
+            ],
+            risks: ['Over-reliance on self-advocacy'],
+            recommendations: ['Leverage spouse and colleague testimonials', 'Create peer success network']
+          },
+          competition: {
+            score: 82,
+            status: 'strong',
+            findings: [
+              'Evaluated 2 competitors: "I\'ve researched thoroughly"',
+              'Quality differentiation: "Your materials are superior"',
+              'Reputation advantage: "You have the best reviews"',
+              'Price secondary: "I\'ll pay more for the best results"'
+            ],
+            risks: ['Competitor may offer significant discount'],
+            recommendations: ['Emphasize unique value proposition', 'Secure commitment today']
+          }
+        }
       },
-      economic_buyer: {
-        score: 70,
-        status: 'moderate',
-        findings: [
-          'CFO mentioned as final approver',
-          'Budget owner identified as VP Operations',
-          'Decision making unit includes 5 stakeholders'
-        ],
-        risks: ['No direct engagement with CFO yet'],
-        recommendations: ['Schedule executive briefing with CFO within 7 days']
+      invisalign_professional: {
+        overall_score: 74,
+        patient_profile: "Marketing manager, age 28, considering Invisalign",
+        treatment_value: "$5,200 (comprehensive treatment)",
+        timeline: "Needs 2 weeks to decide",
+        components: {
+          metrics: {
+            score: 78,
+            status: 'moderate',
+            findings: [
+              'Career metrics: "Appearance affects client interactions"',
+              'Social confidence: "I avoid smiling in meetings"',
+              'Dating impact: "Affects my confidence dating"',
+              'Professional photos: "I edit my smile in LinkedIn photos"'
+            ],
+            risks: ['ROI less quantifiable than executive scenario'],
+            recommendations: ['Create millennial-focused ROI model', 'Show social media transformation impact']
+          },
+          economic_buyer: {
+            score: 65,
+            status: 'moderate',
+            findings: [
+              'Personal budget: "I need to check my savings"',
+              'Payment plan interest: "What financing options exist?"',
+              'Parental consultation: "I might ask my parents for help"',
+              'Timing concern: "Big expense right now"'
+            ],
+            risks: ['Budget constraints may delay decision'],
+            recommendations: ['Present flexible financing options', 'Emphasize investment vs expense mindset']
+          },
+          decision_criteria: {
+            score: 80,
+            status: 'strong',
+            findings: [
+              'Discretion priority: "No one can know I\'m getting treatment"',
+              'Lifestyle compatibility: "Must fit my active lifestyle"',
+              'Treatment time: "12-18 months seems reasonable"',
+              'Pain avoidance: "I hate painful procedures"'
+            ],
+            risks: ['Compliance concerns with removable aligners'],
+            recommendations: ['Address compliance with tracking apps', 'Emphasize pain-free treatment']
+          },
+          decision_process: {
+            score: 70,
+            status: 'moderate',
+            findings: [
+              'Research-heavy: "I\'ve read everything online"',
+              'Social validation: "I want to see more patient results"',
+              'Timeline flexible: "I can wait for the right time"',
+              'Multiple consultations: "I\'m seeing 2 other practices"'
+            ],
+            risks: ['Extended decision process allows competitor engagement'],
+            recommendations: ['Accelerate decision with limited-time incentive', 'Provide social proof package']
+          },
+          identify_pain: {
+            score: 85,
+            status: 'strong',
+            findings: [
+              'Professional impact: "Crooked teeth affect my credibility"',
+              'Photo avoidance: "I never smile naturally in pictures"',
+              'Social anxiety: "I\'m self-conscious in groups"',
+              'Dating confidence: "It affects my romantic relationships"'
+            ],
+            risks: ['Strong pain but competing with other life priorities'],
+            recommendations: ['Create urgency around peak dating/career years', 'Show millennial transformation stories']
+          },
+          champion: {
+            score: 72,
+            status: 'moderate',
+            findings: [
+              'Friend referral: "My friend Sarah recommended you"',
+              'Social media influence: "I follow dental transformation accounts"',
+              'Peer pressure: "Everyone my age is getting aligners"',
+              'Self-motivation: "I\'ve wanted this for years"'
+            ],
+            risks: ['Champion influence moderate, not internal advocate'],
+            recommendations: ['Strengthen friend referral connection', 'Create peer success community']
+          },
+          competition: {
+            score: 68,
+            status: 'moderate',
+            findings: [
+              'Direct-to-consumer consideration: "SmileDirectClub is cheaper"',
+              'Other practices: "Shopping 2 other dental offices"',
+              'Price sensitivity: "Cost is a major factor"',
+              'Brand preference unclear: "Not sure about brand differences"'
+            ],
+            risks: ['Price-focused comparison may favor competitors'],
+            recommendations: ['Differentiate on quality and supervision', 'Address direct-to-consumer risks']
+          }
+        }
       },
-      decision_criteria: {
-        score: 90,
-        status: 'strong',
-        findings: [
-          'Clear criteria defined: Integration, scalability, support',
-          'Technical requirements documented',
-          'Success metrics agreed upon'
-        ],
-        risks: ['Security review process not discussed'],
-        recommendations: ['Provide security documentation proactively']
-      },
-      decision_process: {
-        score: 75,
-        status: 'moderate',
-        findings: [
-          'Timeline established: Decision by Q2',
-          '3-step evaluation process defined',
-          'Stakeholder roles clarified'
-        ],
-        risks: ['Procurement process details unclear'],
-        recommendations: ['Map complete approval workflow']
-      },
-      identify_pain: {
-        score: 80,
-        status: 'strong',
-        findings: [
-          'Manual processes causing 40% efficiency loss',
-          'Compliance risks identified and quantified',
-          'Growth limitations due to current system'
-        ],
-        risks: ['Pain not yet validated with all stakeholders'],
-        recommendations: ['Conduct workshop with end users']
-      },
-      champion: {
-        score: 65,
-        status: 'weak',
-        findings: [
-          'VP Sales showing strong support',
-          'Has influence but not decision authority',
-          'Willing to advocate internally'
-        ],
-        risks: ['Champion lacks political capital', 'No technical champion identified'],
-        recommendations: ['Develop multi-champion strategy', 'Enable champion with success stories']
-      },
-      competition: {
-        score: 80,
-        status: 'strong',
-        findings: [
-          'Main competitor: CompetitorX',
-          'Differentiation on integration capabilities',
-          'Price competitive advantage identified'
-        ],
-        risks: ['Competitor has existing relationship'],
-        recommendations: ['Create competitor displacement strategy']
+      implant_retiree: {
+        overall_score: 71,
+        patient_profile: "Retired teacher, age 67, needs single implant",
+        treatment_value: "$4,800 (implant + crown)",
+        timeline: "Wants second opinion, 4-6 week timeline",
+        components: {
+          metrics: {
+            score: 75,
+            status: 'moderate',
+            findings: [
+              'Functional necessity: "Can\'t chew properly on that side"',
+              'Oral health: "Bone loss will continue without implant"',
+              'Quality of life: "Affects my ability to eat what I want"',
+              'Social comfort: "I\'m embarrassed about the gap"'
+            ],
+            risks: ['Metrics more health-focused than cosmetic'],
+            recommendations: ['Emphasize medical necessity over aesthetics', 'Show health deterioration timeline']
+          },
+          economic_buyer: {
+            score: 60,
+            status: 'weak',
+            findings: [
+              'Fixed income concern: "Living on pension and social security"',
+              'Insurance limitation: "Medicare doesn\'t cover implants"',
+              'Spouse consultation: "Need to discuss with my husband"',
+              'Major purchase hesitation: "This is a big expense for us"'
+            ],
+            risks: ['Economic constraints significant barrier'],
+            recommendations: ['Explore insurance alternatives', 'Present senior-friendly financing options']
+          },
+          decision_criteria: {
+            score: 82,
+            status: 'strong',
+            findings: [
+              'Safety priority: "I want the safest procedure possible"',
+              'Experience requirement: "How many implants have you done?"',
+              'Recovery concern: "I can\'t be down for long"',
+              'Longevity focus: "I want this to last the rest of my life"'
+            ],
+            risks: ['High safety expectations require careful handling'],
+            recommendations: ['Emphasize experience and safety record', 'Provide detailed recovery timeline']
+          },
+          decision_process: {
+            score: 70,
+            status: 'moderate',
+            findings: [
+              'Cautious approach: "I don\'t make quick decisions anymore"',
+              'Second opinion planned: "I want to get another opinion"',
+              'Family involvement: "My daughter will help me decide"',
+              'Extended timeline: "I have time to think about this"'
+            ],
+            risks: ['Extended process allows for decision fatigue'],
+            recommendations: ['Respect cautious approach', 'Involve family in education process']
+          },
+          identify_pain: {
+            score: 88,
+            status: 'strong',
+            findings: [
+              'Functional limitation: "I can only chew on one side"',
+              'Bone deterioration: "My jawbone is shrinking"',
+              'Dietary restriction: "I avoid certain foods now"',
+              'Social embarrassment: "I\'m self-conscious about the gap"',
+              'Adjacent teeth shifting: "My other teeth are moving"'
+            ],
+            risks: ['Strong pain but cost sensitivity may override'],
+            recommendations: ['Focus on progressive deterioration', 'Show long-term cost of inaction']
+          },
+          champion: {
+            score: 78,
+            status: 'moderate',
+            findings: [
+              'Family support: "My daughter researched this for me"',
+              'Dentist referral: "My dentist recommended an implant"',
+              'Friend experience: "My neighbor had a good experience"',
+              'Health motivation: "I want to maintain my health"'
+            ],
+            risks: ['Multiple influencers but no strong internal champion'],
+            recommendations: ['Strengthen family advocate role', 'Leverage referring dentist relationship']
+          },
+          competition: {
+            score: 65,
+            status: 'moderate',
+            findings: [
+              'Second opinion planned: "I want to compare recommendations"',
+              'Cost comparison: "I need to compare prices"',
+              'Denture consideration: "Is a partial denture cheaper?"',
+              'Timeline flexibility: "I\'m not in a rush to decide"'
+            ],
+            risks: ['Cost-focused comparison may favor cheaper alternatives'],
+            recommendations: ['Differentiate implant benefits vs alternatives', 'Show long-term value proposition']
+          }
+        }
       }
-    }
+    };
+    
+    return scenarios[scenarioType] || scenarios.veneer_executive;
   };
+
+  const meddic = data || generateDentalMEDDICScenario('veneer_executive');
   
   const getStatusColor = (status) => {
     switch (status) {
@@ -139,11 +348,11 @@ const MEDDICAnalysis = ({ data }) => {
   };
   
   const componentIcons = {
-    metrics: <AttachMoney />,
+    metrics: <MonetizationOn />,
     economic_buyer: <Person />,
-    decision_criteria: <Gavel />,
-    decision_process: <Timeline />,
-    identify_pain: <Psychology />,
+    decision_criteria: <AutoAwesome />,
+    decision_process: <CalendarToday />,
+    identify_pain: <LocalHospital />,
     champion: <EmojiEvents />,
     competition: <Groups />
   };
@@ -177,7 +386,7 @@ const MEDDICAnalysis = ({ data }) => {
           <Grid item xs={12} md={4}>
             <Box sx={{ textAlign: 'center' }}>
               <Typography variant="h6" color="text.secondary" gutterBottom>
-                MEDDIC Score
+                Case Conversion Score
               </Typography>
               <Typography 
                 variant="h1" 
@@ -191,29 +400,50 @@ const MEDDICAnalysis = ({ data }) => {
                 {meddic.overall_score}%
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Deal Qualification Strength
+                Patient Conversion Probability
               </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 700 }}>
-              Executive Summary
+              Patient Analysis Summary
             </Typography>
             <Typography variant="body1" paragraph>
-              This opportunity shows strong potential with clear metrics and pain points identified. 
-              The main gaps are in champion development and economic buyer engagement.
+              <strong>{meddic.patient_profile}</strong> • Treatment Value: {meddic.treatment_value}
             </Typography>
-            <Stack direction="row" spacing={2}>
-              <Chip
-                icon={<TrendingUp />}
-                label="High Revenue Potential"
-                color="success"
-              />
-              <Chip
-                icon={<Warning />}
-                label="Executive Access Needed"
-                color="warning"
-              />
+            <Typography variant="body1" paragraph>
+              This {meddic.overall_score >= 80 ? 'high-probability' : meddic.overall_score >= 60 ? 'moderate-probability' : 'challenging'} dental case shows {meddic.overall_score >= 80 ? 'excellent' : meddic.overall_score >= 60 ? 'good' : 'limited'} conversion potential. 
+              Strong pain points and treatment urgency are evident. Timeline: {meddic.timeline}.
+            </Typography>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
+              {meddic.overall_score >= 80 && (
+                <Chip
+                  icon={<TrendingUp />}
+                  label="High Case Value"
+                  color="success"
+                />
+              )}
+              {meddic.components.identify_pain.score >= 80 && (
+                <Chip
+                  icon={<LocalHospital />}
+                  label="Strong Treatment Need"
+                  color="success"
+                />
+              )}
+              {meddic.components.economic_buyer.score < 70 && (
+                <Chip
+                  icon={<Warning />}
+                  label="Financing Concerns"
+                  color="warning"
+                />
+              )}
+              {meddic.components.competition.score < 75 && (
+                <Chip
+                  icon={<Groups />}
+                  label="Competitive Pressure"
+                  color="warning"
+                />
+              )}
             </Stack>
           </Grid>
         </Grid>
@@ -221,7 +451,7 @@ const MEDDICAnalysis = ({ data }) => {
       
       {/* Component Analysis */}
       <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
-        MEDDIC Component Analysis
+        Patient Consultation Analysis (MEDDIC Framework)
       </Typography>
       
       <Grid container spacing={3}>
@@ -363,42 +593,44 @@ const MEDDICAnalysis = ({ data }) => {
         }}
       >
         <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>
-          Priority Action Plan
+          Treatment Consultation Action Plan
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
             <Alert severity="error" variant="outlined">
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Immediate (This Week)
+                Immediate (Today)
               </Typography>
               <Typography variant="body2">
-                • Schedule CFO meeting<br />
-                • Strengthen champion position<br />
-                • Address security concerns
+                {meddic.components.economic_buyer.score < 70 ? '• Address financing options immediately' : '• Schedule treatment appointment'}<br />
+                {meddic.components.champion.score < 75 ? '• Strengthen patient advocacy' : '• Confirm treatment timeline'}<br />
+                {meddic.components.competition.score < 75 ? '• Address competitor comparisons' : '• Secure treatment commitment'}
               </Typography>
             </Alert>
           </Grid>
           <Grid item xs={12} md={4}>
             <Alert severity="warning" variant="outlined">
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Short-term (Next 2 Weeks)
+                Short-term (This Week)
               </Typography>
               <Typography variant="body2">
-                • Complete ROI validation<br />
-                • Map decision process<br />
-                • Competitive positioning
+                • Complete treatment planning<br />
+                • Provide detailed cost breakdown<br />
+                • Schedule pre-treatment consultation<br />
+                • Address any remaining concerns
               </Typography>
             </Alert>
           </Grid>
           <Grid item xs={12} md={4}>
             <Alert severity="success" variant="outlined">
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Strategic (This Month)
+                Follow-up (Next 2 Weeks)
               </Typography>
               <Typography variant="body2">
-                • Build multi-champion strategy<br />
-                • Executive alignment<br />
-                • Finalize proposal
+                • Begin treatment phase<br />
+                • Monitor patient satisfaction<br />
+                • Document success metrics<br />
+                • Request referral opportunities
               </Typography>
             </Alert>
           </Grid>
