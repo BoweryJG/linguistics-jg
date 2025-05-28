@@ -26,352 +26,329 @@ import {
   MonetizationOn,
   Schedule,
   Lightbulb,
-  EmojiEvents
+  EmojiEvents,
+  LocalHospital,
+  AutoAwesome,
+  CalendarToday
 } from '@mui/icons-material';
+import { DENTAL_AESTHETICS_INDUSTRY } from '../../data/dentalAestheticsSalesResearch';
 
 const NegotiationMasterAnalysis = ({ conversationData }) => {
-  const negotiationData = {
-    harvey_specter_assessment: {
-      overall_score: 76,
-      negotiation_style: "Collaborative Power Player",
-      confidence_level: "High - Controlled Authority",
-      summary: "Strong foundation with room for Harvey-level refinement in positioning and leverage"
-    },
-    power_dynamics: {
-      position_strength: {
-        score: 82,
-        factors: [
-          "Expertise clearly established",
-          "Technology advantage demonstrated",
-          "Patient need well-identified",
-          "Urgency appropriately created"
-        ]
+  // Advanced dental negotiation scenarios using industry research
+  const generateDentalNegotiationData = (scenarioType = 'executive_veneers') => {
+    const dentalScenarios = {
+      executive_veneers: {
+        harvey_specter_assessment: {
+          overall_score: 89,
+          negotiation_style: "Executive Power Closer",
+          confidence_level: "Harvey-Level Authority",
+          patient_profile: "C-Suite Executive, 45, $500K+ income",
+          treatment_value: "$22,000 (10 veneers + whitening)",
+          summary: "Masterful positioning with executive-level authority and urgency creation"
+        },
+        power_dynamics: {
+          position_strength: {
+            score: 94,
+            factors: [
+              "Elite expertise positioned from opening: '20 years, 3,000+ veneers'",
+              "Exclusive materials advantage: 'Ultra-thin e.max only 3 practices in city'",
+              "Celebrity client portfolio: 'Featured in Forbes for CEO smile transformations'",
+              "Technology supremacy: 'Our 3D imaging is NASA-level precision'"
+            ]
+          },
+          leverage_creation: {
+            score: 91,
+            opportunities: [
+              "Calendar exclusivity: 'Next executive slot available in 6 weeks'",
+              "Seasonal positioning: 'Conference season starts in 8 weeks'",
+              "Economic timing: 'Tax advantage if completed this quarter'",
+              "Social urgency: 'Board photos for annual report next month'"
+            ],
+            executed_leverage: [
+              "Competitor timeline disadvantage revealed strategically",
+              "Premium positioning vs commodity alternatives",
+              "Executive peer testimonials from similar companies"
+            ]
+          }
+        },
       },
-      leverage_creation: {
-        score: 68,
-        opportunities: [
-          "Limited appointment availability",
-          "Exclusive 3D planning process",
-          "Seasonal booking advantages",
-          "Payment plan time sensitivity"
-        ],
-        missed_leverage: [
-          "Competitor booking timelines",
-          "Treatment complexity advantages",
-          "Referral exclusivity benefits"
-        ]
+      millennial_invisalign: {
+        harvey_specter_assessment: {
+          overall_score: 82,
+          negotiation_style: "Aspirational Authority Builder",
+          confidence_level: "High Professional Control",
+          patient_profile: "Marketing Manager, 28, $75K income",
+          treatment_value: "$6,500 (Invisalign + whitening)",
+          summary: "Strong millennial-focused positioning with lifestyle integration mastery"
+        },
+        power_dynamics: {
+          position_strength: {
+            score: 88,
+            factors: [
+              "Social proof dominance: '5,000+ Instagram transformations'",
+              "Career advancement positioning: 'Your smile is your personal brand'",
+              "Technology integration: 'AI-powered treatment planning'",
+              "Lifestyle compatibility: 'Designed for your active life'"
+            ]
+          },
+          leverage_creation: {
+            score: 85,
+            opportunities: [
+              "Peak dating years urgency: 'Best years for confidence investment'",
+              "Career momentum timing: 'Promotion season alignment'",
+              "Social calendar leverage: 'Wedding season approaching'",
+              "Financing advantage: 'Lowest rates of the year ending soon'"
+            ],
+            executed_leverage: [
+              "Direct-to-consumer risks highlighted professionally",
+              "Supervision vs DIY treatment differentiation",
+              "Professional network value positioning"
+            ]
+          }
+        },
+      },
+      retiree_implants: {
+        harvey_specter_assessment: {
+          overall_score: 76,
+          negotiation_style: "Respectful Health Authority",
+          confidence_level: "Measured Professional Control",
+          patient_profile: "Retired Teacher, 68, Fixed Income",
+          treatment_value: "$8,500 (2 implants + crowns)",
+          summary: "Dignified health-focused negotiation with family-inclusive approach"
+        },
+        power_dynamics: {
+          position_strength: {
+            score: 82,
+            factors: [
+              "Medical necessity authority: '30 years implant specialization'",
+              "Health consequence expertise: 'Bone loss prevention specialist'",
+              "Senior care experience: '2,000+ successful senior implant cases'",
+              "Conservative approach: 'We prioritize your comfort and healing'"
+            ]
+          },
+          leverage_creation: {
+            score: 71,
+            opportunities: [
+              "Health deterioration timeline: 'Early intervention prevents complications'",
+              "Quality of life impact: 'Enjoy your favorite foods again'",
+              "Insurance timing: 'Benefit year maximization strategy'",
+              "Family influence: 'Your daughter researched us specifically'"
+            ],
+            executed_leverage: [
+              "Alternative treatment limitations explained clearly",
+              "Long-term cost comparison with removable options",
+              "Health insurance maximization strategy"
+            ]
+          }
+        },
       }
-    },
+    };
+    return dentalScenarios[scenarioType] || dentalScenarios.executive_veneers;
+  };
+
+  const dentalNegotiationBase = generateDentalNegotiationData('executive_veneers');
+  
+  const negotiationData = {
+    ...dentalNegotiationBase,
     harvey_techniques_applied: {
       used_effectively: [
         {
           technique: "Information Control",
-          example: "Strategically revealed treatment options based on patient readiness",
-          harvey_rating: 8.5,
-          impact: "High - Maintained professional authority"
+          example: "Revealed premium veneer options only after establishing executive status and image needs",
+          harvey_rating: 9.2,
+          impact: "Elite positioning established - patient expecting premium investment"
+        },
+        {
+          technique: "Strategic Scarcity",
+          example: "Only 2 executive consultation slots remaining this quarter for conference season",
+          harvey_rating: 8.8,
+          impact: "Created urgency without desperation - accelerated decision timeline"
         },
         {
           technique: "Value Anchoring",
-          example: "Positioned premium outcome expectations before price discussion",
-          harvey_rating: 7.8,
-          impact: "Good - Set quality expectations first"
+          example: "Positioned as career investment: '$22K smile = $200K+ promotion credibility'",
+          harvey_rating: 9.1,
+          impact: "ROI framework established - price becomes secondary to outcome"
         },
         {
-          technique: "Strategic Empathy",
-          example: "Acknowledged aesthetic concerns while building confidence",
-          harvey_rating: 8.2,
-          impact: "High - Built trust and rapport"
+          technique: "Social Proof Authority",
+          example: "Shared CEO client transformations: 'Just finished Amazon VP's veneers last month'",
+          harvey_rating: 8.9,
+          impact: "Peer-level validation - increased confidence in provider choice"
+        },
+        {
+          technique: "Preemptive Objection Handling",
+          example: "Addressed timeline concerns before raised: 'Executives need results, not delays'",
+          harvey_rating: 8.7,
+          impact: "Smooth consultation flow - anticipated and resolved resistance"
         }
       ],
       improvement_opportunities: [
         {
-          technique: "Controlled Scarcity",
-          gap: "Could emphasize limited calendar availability more strategically",
-          harvey_approach: "Create time pressure without desperation",
-          potential_impact: "Accelerated decision timeline"
+          technique: "Controlled Vulnerability",
+          gap: "Could share strategic practice limitations to increase exclusivity perception",
+          harvey_approach: "We only accept 3 executive cases monthly to maintain quality standards",
+          potential_impact: "Enhanced premium positioning and urgency"
         },
         {
-          technique: "Preemptive Objection Handling",
-          gap: "Waited for objections rather than addressing proactively",
-          harvey_approach: "Address concerns before they're raised",
-          potential_impact: "Smoother consultation flow"
+          technique: "Alternative Choice Architecture",
+          gap: "Presented single option vs multiple tiers of executive packages",
+          harvey_approach: "Executive, CEO, and Chairman-level veneer packages with clear differentiators",
+          potential_impact: "Patient self-selects highest tier for status consistency"
         }
       ]
     },
     closing_power: {
       techniques_used: [
-        "Assumptive language patterns",
-        "Next step naturalization",
-        "Benefit summarization",
-        "Social proof integration"
+        "Executive assumptive language: 'When we begin your transformation...'",
+        "Status-based next steps: 'Your executive consultation coordinator will...'",
+        "Investment benefit summarization: 'Enhanced presence, career advancement, confidence ROI'",
+        "Peer social proof integration: 'Like other C-suite clients, you'll see..'"
       ],
       harvey_enhancements: [
-        "Add strategic silence after key questions",
-        "Use 'when' instead of 'if' language consistently",
-        "Create multiple smaller commitments leading to main decision",
-        "Position alternatives as different paths to same outcome"
+        "Add strategic silence after investment discussion",
+        "Use 'when you're ready for this level of transformation' vs 'if interested'",
+        "Create executive-only commitment pathway with special scheduling",
+        "Position decision as business investment with immediate implementation"
       ],
-      effectiveness_score: 74
+      effectiveness_score: 92
     },
     persuasion_mastery: {
       emotional_intelligence: {
-        score: 85,
+        score: 91,
         strengths: [
-          "Excellent reading of patient anxiety levels",
-          "Appropriate empathy without over-accommodation",
-          "Professional confidence without arrogance"
+          "Excellent reading of executive communication style preferences",
+          "Professional confidence matching client's business authority level",
+          "Appropriate urgency creation without pressure tactics"
         ]
       },
       logical_frameworks: {
-        score: 79,
+        score: 94,
         application: [
-          "Cost-benefit analysis presentation",
-          "Timeline logic for treatment phases",
-          "Risk-reward positioning for aesthetic investment"
+          "ROI analysis: Career advancement value quantification",
+          "Timeline optimization: Conference and networking season alignment",
+          "Risk mitigation: Premium provider vs discount alternative consequences"
         ]
       },
       influence_tactics: {
-        score: 72,
+        score: 89,
         harvey_favorites: [
           {
-            tactic: "Social Proof",
-            usage: "Good - Referenced similar successful cases",
-            harvey_level: "Could be more specific and dramatic"
+            tactic: "Executive Social Proof",
+            usage: "Masterful - Named specific industry leaders and their transformations",
+            harvey_level: "Harvey would be proud - peer-level validation"
           },
           {
             tactic: "Authority Positioning",
-            usage: "Strong - Credentials and experience highlighted",
-            harvey_level: "Excellent foundation, maintain consistency"
+            usage: "Excellent - Established as go-to provider for executive aesthetics",
+            harvey_level: "Perfect authority without arrogance"
           },
           {
-            tactic: "Reciprocity",
-            usage: "Moderate - Provided valuable insights",
-            harvey_level: "Opportunity for more strategic gifts of value"
+            tactic: "Strategic Scarcity",
+            usage: "Well-executed - Calendar limitations positioned professionally",
+            harvey_level: "Could add more exclusivity layers"
+          },
+          {
+            tactic: "Value Reframing",
+            usage: "Brilliant - Transformed expense into career investment",
+            harvey_level: "Harvey-level reframing mastery"
           }
         ]
       }
     },
-    dental_power_moves: {
-      executed: [
-        {
-          move: "Technology Demonstration Dominance",
-          description: "Used 3D imaging to create 'wow' moment and establish tech superiority",
-          harvey_rating: 9.0,
-          outcome: "Patient engagement peaked, competitive advantage clear"
-        },
-        {
-          move: "Expertise Storytelling",
-          description: "Shared relevant case success stories to build confidence",
-          harvey_rating: 7.5,
-          outcome: "Trust building and outcome visualization"
-        }
-      ],
-      missed_opportunities: [
-        {
-          move: "Scarcity Creation",
-          description: "Could have emphasized exclusive treatment windows",
-          harvey_potential: "Limited spots for optimal timeline completion"
-        },
-        {
-          move: "Competitive Neutralization",
-          description: "Defensive rather than proactive competitive positioning",
-          harvey_potential: "Preemptively address why others fall short"
-        }
-      ]
-    },
-    negotiation_psychology: {
-      patient_profile: "Analytical Decision Maker with High Standards",
-      harvey_read: "Responds to expertise and exclusivity, fears mediocrity",
-      optimal_approach: [
-        "Position as premium choice for discerning patients",
-        "Emphasize limited availability and selective patient acceptance",
-        "Use sophisticated language and concepts",
-        "Provide detailed technical explanations with confident delivery"
-      ],
-      psychological_triggers: [
-        "Fear of suboptimal results",
-        "Desire for cutting-edge treatment",
-        "Need for professional validation",
-        "Status and quality association"
-      ]
-    },
-    harvey_scoring: {
-      categories: {
-        presence_authority: 82,
-        strategic_thinking: 74,
-        closing_power: 76,
-        value_positioning: 80,
-        leverage_creation: 68,
-        psychological_insight: 85
+    dental_specific_mastery: {
+      aesthetic_psychology: {
+        score: 88,
+        application: [
+          "Executive image impact: Connected smile to leadership presence",
+          "Confidence correlation: Linked appearance to professional performance",
+          "Social capital: Positioned smile as networking asset"
+        ]
       },
-      overall_harvey_rating: 77,
-      advancement_areas: [
-        "More aggressive scarcity creation",
-        "Preemptive competitive neutralization",
-        "Strategic silence utilization",
-        "Multiple commitment pathway design"
-      ]
+      treatment_positioning: {
+        score: 92,
+        strategies: [
+          "Premium materials as competitive advantage",
+          "Exclusive technology as differentiator",
+          "Accelerated timeline as executive service",
+          "Concierge experience as status marker"
+        ]
+      },
+      objection_prevention: {
+        score: 85,
+        preemptive_moves: [
+          "Investment vs expense mindset established early",
+          "Timeline urgency created before scheduling discussion",
+          "Quality differentiation positioned before price reveal",
+          "Executive peer validation before decision pressure"
+        ]
+      }
     },
-    recommended_upgrades: {
-      immediate_implementation: [
-        {
-          upgrade: "Harvey's Calendar Control",
-          script: "'I have two optimal treatment windows in the next 8 weeks - let me check which aligns with your timeline.'",
-          impact: "Creates natural urgency without pressure"
-        },
-        {
-          upgrade: "Preemptive Excellence Positioning",
-          script: "'Unlike traditional approaches that compromise on precision, our 3D methodology ensures...'",
-          impact: "Neutralizes competition before it's mentioned"
-        },
-        {
-          upgrade: "Strategic Consultation Ending",
-          script: "'Based on everything we've discussed, I'm confident this is the right path. The question isn't whether to proceed, but which timeline works best for you.'",
-          impact: "Assumptive close with choice illusion"
-        }
+    negotiation_outcomes: {
+      primary_win: {
+        achievement: "Executive veneer case secured",
+        value: "$22,000 treatment commitment",
+        timeline: "Scheduled within 48 hours",
+        harvey_assessment: "Masterful close - exceeded expectations"
+      },
+      secondary_benefits: [
+        "Referral potential: C-suite network access",
+        "Case study value: Executive transformation portfolio",
+        "Premium positioning: Enhanced practice reputation",
+        "Revenue impact: 3x average case value"
       ],
-      advanced_techniques: [
-        "Develop signature treatment methodology branding",
-        "Create exclusive patient selection criteria narrative",
-        "Build strategic partnership leverage stories",
-        "Design premium patient experience differentiation"
+      leverage_maintained: [
+        "Future availability scarcity established",
+        "Executive-tier service expectations set",
+        "Premium pricing tolerance confirmed",
+        "Peer referral pathway created"
       ]
-    },
-    success_indicators: {
-      harvey_benchmarks: [
-        "Patient feels privileged to be accepted for treatment",
-        "Competition is viewed as clearly inferior",
-        "Price becomes secondary to quality and exclusivity",
-        "Timeline urgency is naturally accepted",
-        "Referral enthusiasm is immediate"
-      ],
-      current_achievement: "70% of Harvey benchmarks met",
-      next_level_focus: "Scarcity mastery and competitive dominance"
     }
   };
-
-  const getHarveyColor = (score) => {
-    if (score >= 85) return '#FFD700'; // Gold
-    if (score >= 75) return '#4CAF50'; // Green
-    if (score >= 65) return '#2196F3'; // Blue
-    if (score >= 55) return '#FF9800'; // Orange
-    return '#f44336'; // Red
-  };
-
-  const HarveyMeter = ({ label, score }) => (
-    <Box sx={{ mb: 2 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-          {label}
-        </Typography>
-        <Typography variant="body2" sx={{ fontWeight: 'bold', color: getHarveyColor(score) }}>
-          {score}/100
-        </Typography>
-      </Box>
-      <LinearProgress
-        variant="determinate"
-        value={score}
-        sx={{
-          height: 8,
-          borderRadius: 4,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          '& .MuiLinearProgress-bar': {
-            backgroundColor: getHarveyColor(score),
-            borderRadius: 4
-          }
-        }}
-      />
-    </Box>
-  );
 
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4" gutterBottom sx={{ 
-        background: 'linear-gradient(45deg, #FFD700, #FFA000)',
+        background: 'linear-gradient(45deg, #1976D2, #42A5F5)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         fontWeight: 'bold',
         mb: 3
       }}>
-        Negotiation Master Analysis
-      </Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3, fontStyle: 'italic' }}>
-        "The best negotiation is when both parties feel they've won, but you've actually won more." - Harvey Specter
+        Harvey Specter Negotiation Analysis
       </Typography>
 
       <Grid container spacing={3}>
-        {/* Harvey Specter Assessment */}
+        {/* Harvey Assessment Card */}
         <Grid item xs={12}>
           <Card sx={{ 
-            background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 160, 0, 0.05))',
+            background: 'linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(66, 165, 245, 0.05))',
             backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 215, 0, 0.3)'
+            border: '1px solid rgba(25, 118, 210, 0.2)'
           }}>
             <CardContent>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Avatar sx={{ 
-                  width: 60, 
-                  height: 60, 
-                  backgroundColor: '#FFD700',
-                  color: '#000',
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  mr: 2
-                }}>
-                  HS
-                </Avatar>
+                <Gavel sx={{ fontSize: 40, color: '#1976D2', mr: 2 }} />
                 <Box sx={{ flex: 1 }}>
                   <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                    Harvey Specter Analysis: {negotiationData.harvey_specter_assessment.overall_score}/100
+                    {negotiationData.harvey_specter_assessment.negotiation_style}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {negotiationData.harvey_specter_assessment.negotiation_style} • {negotiationData.harvey_specter_assessment.confidence_level}
+                    {negotiationData.harvey_specter_assessment.patient_profile} • {negotiationData.harvey_specter_assessment.treatment_value}
+                  </Typography>
+                  <Typography variant="body1" sx={{ mt: 1 }}>
+                    {negotiationData.harvey_specter_assessment.summary}
                   </Typography>
                 </Box>
                 <Chip 
-                  label="Negotiation Master"
+                  label={`${negotiationData.harvey_specter_assessment.overall_score}/100`}
                   sx={{ 
-                    backgroundColor: '#FFD700',
-                    color: '#000',
-                    fontWeight: 'bold'
+                    backgroundColor: '#1976D2',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: '1.1rem'
                   }}
                 />
-              </Box>
-              <Alert severity="info" sx={{ backgroundColor: 'rgba(255, 215, 0, 0.1)' }}>
-                <Typography variant="body2">
-                  <strong>Harvey's Take:</strong> {negotiationData.harvey_specter_assessment.summary}
-                </Typography>
-              </Alert>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Harvey Scoring Breakdown */}
-        <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <EmojiEvents sx={{ color: '#FFD700', mr: 1 }} />
-                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                  Harvey Specter Scorecard
-                </Typography>
-              </Box>
-              
-              {Object.entries(negotiationData.harvey_scoring.categories).map(([category, score]) => (
-                <HarveyMeter 
-                  key={category}
-                  label={category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                  score={score}
-                />
-              ))}
-
-              <Box sx={{ textAlign: 'center', mt: 2, p: 2, backgroundColor: 'rgba(255, 215, 0, 0.1)', borderRadius: 2 }}>
-                <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#FFD700' }}>
-                  {negotiationData.harvey_scoring.overall_harvey_rating}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Overall Harvey Rating
-                </Typography>
               </Box>
             </CardContent>
           </Card>
@@ -382,21 +359,24 @@ const NegotiationMasterAnalysis = ({ conversationData }) => {
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                <TrendingUp sx={{ mr: 1, verticalAlign: 'middle' }} />
                 Power Dynamics Assessment
               </Typography>
               
               <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                  <Gavel sx={{ color: '#4CAF50', mr: 1 }} />
-                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                    Position Strength: {negotiationData.power_dynamics.position_strength.score}/100
-                  </Typography>
-                </Box>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                  Position Strength: {negotiationData.power_dynamics.position_strength.score}/100
+                </Typography>
+                <LinearProgress 
+                  variant="determinate" 
+                  value={negotiationData.power_dynamics.position_strength.score} 
+                  sx={{ mb: 2, height: 8, borderRadius: 4 }}
+                />
                 <List dense>
                   {negotiationData.power_dynamics.position_strength.factors.map((factor, index) => (
-                    <ListItem key={index} sx={{ px: 0, py: 0.25 }}>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <CheckCircle sx={{ fontSize: 14, color: '#4CAF50' }} />
+                    <ListItem key={index} sx={{ px: 0 }}>
+                      <ListItemIcon sx={{ minWidth: 32 }}>
+                        <CheckCircle sx={{ fontSize: 18, color: 'success.main' }} />
                       </ListItemIcon>
                       <ListItemText 
                         primary={factor}
@@ -408,20 +388,19 @@ const NegotiationMasterAnalysis = ({ conversationData }) => {
               </Box>
 
               <Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                  <TrendingUp sx={{ color: '#FF9800', mr: 1 }} />
-                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                    Leverage Creation: {negotiationData.power_dynamics.leverage_creation.score}/100
-                  </Typography>
-                </Box>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                  <strong>Opportunities:</strong>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                  Leverage Creation: {negotiationData.power_dynamics.leverage_creation.score}/100
                 </Typography>
+                <LinearProgress 
+                  variant="determinate" 
+                  value={negotiationData.power_dynamics.leverage_creation.score} 
+                  sx={{ mb: 2, height: 8, borderRadius: 4 }}
+                />
                 <List dense>
-                  {negotiationData.power_dynamics.leverage_creation.opportunities.slice(0, 3).map((opportunity, index) => (
-                    <ListItem key={index} sx={{ px: 0, py: 0.25 }}>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <Lightbulb sx={{ fontSize: 14, color: '#FF9800' }} />
+                  {negotiationData.power_dynamics.leverage_creation.opportunities.map((opportunity, index) => (
+                    <ListItem key={index} sx={{ px: 0 }}>
+                      <ListItemIcon sx={{ minWidth: 32 }}>
+                        <Lightbulb sx={{ fontSize: 18, color: 'warning.main' }} />
                       </ListItemIcon>
                       <ListItemText 
                         primary={opportunity}
@@ -436,271 +415,155 @@ const NegotiationMasterAnalysis = ({ conversationData }) => {
         </Grid>
 
         {/* Harvey Techniques Applied */}
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                <EmojiEvents sx={{ mr: 1, verticalAlign: 'middle' }} />
+                Harvey Techniques Mastery
+              </Typography>
+              
+              {negotiationData.harvey_techniques_applied.used_effectively.map((technique, index) => (
+                <Box key={index} sx={{ mb: 2, p: 2, backgroundColor: 'rgba(76, 175, 80, 0.1)', borderRadius: 1 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
+                      {technique.technique}
+                    </Typography>
+                    <Chip 
+                      label={`${technique.harvey_rating}/10`}
+                      size="small"
+                      color="success"
+                    />
+                  </Box>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                    {technique.example}
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+                    Impact: {technique.impact}
+                  </Typography>
+                </Box>
+              ))}
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Dental-Specific Mastery */}
         <Grid item xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Harvey Specter Techniques Analysis
+                <LocalHospital sx={{ mr: 1, verticalAlign: 'middle' }} />
+                Dental Negotiation Mastery
+              </Typography>
+              
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={4}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    Aesthetic Psychology ({negotiationData.dental_specific_mastery.aesthetic_psychology.score}/100)
+                  </Typography>
+                  <List dense>
+                    {negotiationData.dental_specific_mastery.aesthetic_psychology.application.map((item, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 20 }}>
+                          <Psychology sx={{ fontSize: 16, color: 'primary.main' }} />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary={item}
+                          primaryTypographyProps={{ variant: 'body2' }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    Treatment Positioning ({negotiationData.dental_specific_mastery.treatment_positioning.score}/100)
+                  </Typography>
+                  <List dense>
+                    {negotiationData.dental_specific_mastery.treatment_positioning.strategies.map((strategy, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 20 }}>
+                          <AutoAwesome sx={{ fontSize: 16, color: 'warning.main' }} />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary={strategy}
+                          primaryTypographyProps={{ variant: 'body2' }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    Objection Prevention ({negotiationData.dental_specific_mastery.objection_prevention.score}/100)
+                  </Typography>
+                  <List dense>
+                    {negotiationData.dental_specific_mastery.objection_prevention.preemptive_moves.map((move, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 20 }}>
+                          <CheckCircle sx={{ fontSize: 16, color: 'success.main' }} />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary={move}
+                          primaryTypographyProps={{ variant: 'body2' }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Negotiation Outcomes */}
+        <Grid item xs={12}>
+          <Card sx={{ 
+            background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05))',
+            border: '1px solid rgba(76, 175, 80, 0.2)'
+          }}>
+            <CardContent>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+                <MonetizationOn sx={{ mr: 1, verticalAlign: 'middle' }} />
+                Harvey-Level Outcomes Achieved
               </Typography>
               
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2, color: '#4CAF50' }}>
-                    Successfully Applied Techniques
-                  </Typography>
-                  {negotiationData.harvey_techniques_applied.used_effectively.map((technique, index) => (
-                    <Paper key={index} sx={{ p: 2, mb: 2, backgroundColor: 'rgba(76, 175, 80, 0.1)' }}>
-                      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                        <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                          {technique.technique}
-                        </Typography>
-                        <Chip 
-                          label={`${technique.harvey_rating}/10`}
-                          size="small"
-                          sx={{ backgroundColor: '#4CAF50', color: 'white' }}
-                        />
-                      </Box>
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1, fontStyle: 'italic' }}>
-                        "{technique.example}"
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#4CAF50', fontWeight: 'bold' }}>
-                        Impact: {technique.impact}
-                      </Typography>
-                    </Paper>
-                  ))}
-                </Grid>
-
-                <Grid item xs={12} md={6}>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2, color: '#FF9800' }}>
-                    Improvement Opportunities
-                  </Typography>
-                  {negotiationData.harvey_techniques_applied.improvement_opportunities.map((opportunity, index) => (
-                    <Paper key={index} sx={{ p: 2, mb: 2, backgroundColor: 'rgba(255, 152, 0, 0.1)' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                        {opportunity.technique}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                        <strong>Gap:</strong> {opportunity.gap}
-                      </Typography>
-                      <Typography variant="body2" sx={{ mb: 1 }}>
-                        <strong>Harvey's Approach:</strong> {opportunity.harvey_approach}
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#FF9800', fontWeight: 'bold' }}>
-                        <strong>Potential Impact:</strong> {opportunity.potential_impact}
-                      </Typography>
-                    </Paper>
-                  ))}
-                </Grid>
-              </Grid>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Dental Power Moves */}
-        <Grid item xs={12} md={8}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Dental Power Moves Assessment
-              </Typography>
-              
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2, color: '#4CAF50' }}>
-                Executed Power Moves
-              </Typography>
-              {negotiationData.dental_power_moves.executed.map((move, index) => (
-                <Paper key={index} sx={{ p: 2, mb: 2, backgroundColor: 'rgba(76, 175, 80, 0.1)' }}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-                      {move.move}
+                  <Box sx={{ p: 2, backgroundColor: 'rgba(76, 175, 80, 0.1)', borderRadius: 1 }}>
+                    <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'success.main' }}>
+                      {negotiationData.negotiation_outcomes.primary_win.value}
                     </Typography>
-                    <Chip 
-                      label={`Harvey: ${move.harvey_rating}/10`}
-                      size="small"
-                      sx={{ backgroundColor: '#FFD700', color: '#000' }}
-                    />
+                    <Typography variant="body2" color="text.secondary">
+                      {negotiationData.negotiation_outcomes.primary_win.achievement}
+                    </Typography>
+                    <Typography variant="body2" sx={{ mt: 1, fontStyle: 'italic' }}>
+                      "{negotiationData.negotiation_outcomes.primary_win.harvey_assessment}"
+                    </Typography>
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    {move.description}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#4CAF50', fontWeight: 'bold' }}>
-                    <strong>Outcome:</strong> {move.outcome}
-                  </Typography>
-                </Paper>
-              ))}
-
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2, color: '#FF9800', mt: 3 }}>
-                Missed Power Move Opportunities
-              </Typography>
-              {negotiationData.dental_power_moves.missed_opportunities.map((missed, index) => (
-                <Paper key={index} sx={{ p: 2, mb: 2, backgroundColor: 'rgba(255, 152, 0, 0.1)' }}>
+                </Grid>
+                
+                <Grid item xs={12} md={6}>
                   <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                    {missed.move}
+                    Strategic Benefits Secured:
                   </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    {missed.description}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#FFD700', fontWeight: 'bold' }}>
-                    <strong>Harvey's Potential:</strong> {missed.harvey_potential}
-                  </Typography>
-                </Paper>
-              ))}
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Psychology Profile */}
-        <Grid item xs={12} md={4}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Negotiation Psychology
-              </Typography>
-              
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                  Patient Profile:
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {negotiationData.negotiation_psychology.patient_profile}
-                </Typography>
-              </Box>
-
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                  Harvey's Read:
-                </Typography>
-                <Typography variant="body2" sx={{ color: '#FFD700', fontStyle: 'italic' }}>
-                  "{negotiationData.negotiation_psychology.harvey_read}"
-                </Typography>
-              </Box>
-
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                Psychological Triggers:
-              </Typography>
-              <List dense>
-                {negotiationData.negotiation_psychology.psychological_triggers.map((trigger, index) => (
-                  <ListItem key={index} sx={{ px: 0, py: 0.25 }}>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <Psychology sx={{ fontSize: 14, color: '#9C27B0' }} />
-                    </ListItemIcon>
-                    <ListItemText 
-                      primary={trigger}
-                      primaryTypographyProps={{ variant: 'body2' }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Recommended Upgrades */}
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Harvey Specter Recommended Upgrades
-              </Typography>
-              
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2 }}>
-                Immediate Implementation (Ready to Use):
-              </Typography>
-              <Grid container spacing={2}>
-                {negotiationData.recommended_upgrades.immediate_implementation.map((upgrade, index) => (
-                  <Grid item xs={12} md={4} key={index}>
-                    <Paper sx={{ p: 2, height: '100%', backgroundColor: 'rgba(255, 215, 0, 0.1)' }}>
-                      <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                        {upgrade.upgrade}
-                      </Typography>
-                      <Typography variant="body2" sx={{ 
-                        fontStyle: 'italic', 
-                        mb: 1,
-                        padding: 1,
-                        backgroundColor: 'rgba(0,0,0,0.05)',
-                        borderRadius: 1
-                      }}>
-                        "{upgrade.script}"
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#FF9800', fontWeight: 'bold' }}>
-                        Impact: {upgrade.impact}
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                ))}
+                  <List dense>
+                    {negotiationData.negotiation_outcomes.secondary_benefits.map((benefit, index) => (
+                      <ListItem key={index} sx={{ px: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 20 }}>
+                          <Star sx={{ fontSize: 16, color: 'warning.main' }} />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary={benefit}
+                          primaryTypographyProps={{ variant: 'body2' }}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Grid>
               </Grid>
-
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2, mt: 3 }}>
-                Advanced Technique Development:
-              </Typography>
-              <List>
-                {negotiationData.recommended_upgrades.advanced_techniques.map((technique, index) => (
-                  <ListItem key={index}>
-                    <ListItemIcon>
-                      <Star sx={{ color: '#FFD700' }} />
-                    </ListItemIcon>
-                    <ListItemText 
-                      primary={technique}
-                      primaryTypographyProps={{ variant: 'body2' }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Success Indicators */}
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-                Harvey Specter Success Benchmarks
-              </Typography>
-              
-              <Box sx={{ mb: 3 }}>
-                <Typography variant="body2" color="text.secondary" gutterBottom>
-                  Current Achievement: {negotiationData.success_indicators.current_achievement}
-                </Typography>
-                <LinearProgress 
-                  variant="determinate" 
-                  value={70} 
-                  sx={{ 
-                    height: 8,
-                    borderRadius: 4,
-                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-                    '& .MuiLinearProgress-bar': {
-                      backgroundColor: '#FFD700'
-                    }
-                  }}
-                />
-              </Box>
-
-              <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 2 }}>
-                Harvey's Success Benchmarks:
-              </Typography>
-              <Grid container spacing={2}>
-                {negotiationData.success_indicators.harvey_benchmarks.map((benchmark, index) => (
-                  <Grid item xs={12} md={6} key={index}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', p: 1 }}>
-                      <CheckCircle sx={{ 
-                        color: index < 3 ? '#4CAF50' : '#9E9E9E', 
-                        mr: 2 
-                      }} />
-                      <Typography variant="body2" sx={{
-                        color: index < 3 ? 'inherit' : 'text.secondary'
-                      }}>
-                        {benchmark}
-                      </Typography>
-                    </Box>
-                  </Grid>
-                ))}
-              </Grid>
-
-              <Alert severity="info" sx={{ mt: 2 }}>
-                <Typography variant="body2">
-                  <strong>Next Level Focus:</strong> {negotiationData.success_indicators.next_level_focus}
-                </Typography>
-              </Alert>
             </CardContent>
           </Card>
         </Grid>
